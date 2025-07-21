@@ -21,3 +21,9 @@ def generate_filename(prefix, ext='png'):
     return f"{prefix}.{get_month_label()}.{ext}"
 
 def ensure_directory_exists(path):
+    """
+    Ensure that the directory exists, creating it if necessary.
+    """
+    if not os.path.exists(path):
+        os.makedirs(path)
+    return path
