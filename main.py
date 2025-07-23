@@ -4,7 +4,7 @@ from utils import (
     format_monnaie,
     get_month_label,
     generate_filename,
-    ensure_directory_exist,
+    ensure_directory_exists,
     recommendation_message
 
 
@@ -38,7 +38,7 @@ def print_recommendation(taux_epargne, taux_depense):
 
 def generate_graphic(depense):
 
-    ensure_directory_exist("graphs")
+    ensure_directory_exists("graphs")
     filename = generate_filename("budget_graphic", "png")
 
     labels = depense['Name']
