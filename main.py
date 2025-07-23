@@ -60,12 +60,12 @@ def main():
     parser.add_argument('--input', required=True, help='Chemin vers le fichier CSV du budget')
     args = parser.parse_args()
 
-    revenus, depenses = read_budget(args.input)
-    resultats = calculating_budget(revenus, depenses)
+    revenues, depense= read_budget(args.input)
+    resultats = calculating_budget(revenues, depense)
 
     print_budget_summary(budget_data =resultats)
     recommendation_message(resultats['taux_epargne'], resultats['taux_depense'])
-    generate_graphic(depenses)
+    generate_graphic(depense)
 
 if __name__ == "__main__":
     main()

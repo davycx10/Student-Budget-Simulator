@@ -6,7 +6,7 @@ def format_monnaie(euros):
     """
     Format a number as a currency string with two decimal places.
     """
-    return f"{euros,: .2f}€".replace(',', '')
+    return f"{euros:.2f}€"
 
 def get_month_label():
 
