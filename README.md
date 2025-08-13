@@ -108,8 +108,8 @@ Placez-le dans le dossier `data/`.
 
 ### 2. Lancer le script
 
-```bash
-python main.py --input data/example_budget.csv
+```
+python main.py --input data/exemple_budget.csv
 ```
 
 ### 3. Résultat attendu (exemple console)
@@ -124,19 +124,19 @@ Taux d’épargne : 14 %
 --- Recommandations ---
 ✅ Très bon équilibre entre dépenses et revenus.
 
-Graphique sauvegardé dans: graphs/piechart_07_2025.png
+Graphique sauvegardé dans: graphs/budget_graphic.XXXX-XX-XX.png
 ```
 
 ---
 
-## 📊 Graphique généré
+##  Graphique généré
 
 * Un **camembert** représentant la répartition des dépenses.
 * Enregistré automatiquement dans `/graphs/` avec date dans le nom.
 
 ---
 
-## 🧠 Compétences mises en œuvre
+## Compétences mises en œuvre
 
 * Lecture et traitement de données (`pandas`)
 * Visualisation (`matplotlib`)
