@@ -9,81 +9,155 @@ pip install -r requirements.txt
 
 
 
-# 🧮 Student Budget Simulator
 
-This project is a monthly budget simulation tool for students. It allows you to analyse your income and expenditure, visualise the breakdown, and obtain personalised recommendations for better financial management.
+# 📄 Documentation — **Simulateur de Budget Étudiant**
 
----
+## 📌 Présentation
 
-## 🚀 Project objectives
+Le **Simulateur de Budget Étudiant** est un outil en Python permettant d’analyser un budget mensuel à partir d’un fichier CSV, de visualiser la répartition des dépenses et d’obtenir des recommandations simples pour améliorer sa gestion financière.
 
-🎯 This project was designed **in a personal context** to:
+Ce projet a été réalisé **en autonomie** afin de :
 
-- Put into practice concrete skills in **Python, data analysis, visualisation, and project structuring**.
-- Demonstrate my ability to **design, code and document a complete project independently**.
-- Enhance my profile on **my CV and LinkedIn profile**.
-- Explore useful topics such as financial management, simple modelling and personal productivity.
-
-This project reflects my rigour, autonomy and desire to constantly progress.
+* Mettre en pratique mes compétences en **Python**, **analyse de données**, et **visualisation**.
+* Structurer un projet comme en entreprise (modules séparés, réutilisables).
+* Valoriser mon profil sur **mon CV** et **LinkedIn** par un projet concret.
 
 ---
 
-## 🧠 Features
+##  Fonctionnalités
 
-- 🔢 Automatic reading and analysis of a student budget
-- 📊 Data visualisation via graphics (matplotlib)
-- 💡 Personalised recommendations based on data
-- 📄 Synthetic PDF export (optional)
-- 📅 Monthly monitoring with budget recording (optional)
+* **Lecture et analyse** des revenus et dépenses à partir d’un fichier CSV.
+* **Calculs automatiques** : totaux, reste disponible, taux d’épargne et de dépenses.
+* **Recommandations personnalisées** en fonction des données.
+* **Génération de graphique** (camembert) de la répartition des dépenses.
+* **Organisation modulaire** en plusieurs fichiers Python.
+
 
 ---
 
-## 📁 Expected CSV format
+## 📂 Structure du projet
 
-```csv
-Type,Name,Amount
-Income,Scholarship,450
-Income,Student job,250
-Expenditure,Rent,400
-Expenditure,Food,200
-
-
---------------------------------------------
---------------------------------------------
-# 🧮 Simulateur de Budget Étudiant
-
-Ce projet est un outil de simulation de budget mensuel à destination des étudiants. Il permet d'analyser ses revenus et dépenses, d'en visualiser la répartition, et d'obtenir des recommandations personnalisées pour une meilleure gestion financière.
-
----
-
-## 🚀 Objectifs du projet
-
-🎯 Ce projet a été conçu **dans un cadre personnel** pour :
-
-- Mettre en pratique des compétences concrètes en **Python, data analysis, visualisation, et structuration de projet**.
-- Démontrer ma capacité à **concevoir, coder et documenter un projet complet en autonomie**.
-- Valoriser mon profil sur **mon CV et mon profil LinkedIn**.
-- Explorer des thématiques utiles comme la gestion financière, la modélisation simple et la productivité personnelle.
-
-Ce projet reflète ma rigueur, mon autonomie, et ma volonté de progresser constamment.
+```
+budget_simulator/
+├── main.py                  # Point d’entrée principal
+├── budget.py                # Calculs et logique métier
+├── utils.py                 # Fonctions utilitaires
+├── data/
+│   └── example_budget.csv   # Exemple de budget utilisateur
+├── outputs/                 # Rapports PDF générés (option)
+├── graphs/                  # Graphiques générés
+├── requirements.txt         # Dépendances Python
+└── README.md                # Documentation
+```
 
 ---
 
-## 🧠 Fonctionnalités
+## 🗂 Format du fichier CSV attendu
 
-- 🔢 Lecture et analyse automatique d’un budget étudiant
-- 📊 Visualisation des données via graphique (matplotlib)
-- 💡 Recommandations personnalisées basées sur les données
-- 📄 Export PDF synthétique (option)
-- 📅 Suivi mensuel avec enregistrement des budgets (option)
+Le fichier CSV doit comporter **exactement** trois colonnes :
+`Type`, `Nom`, `Montant`
 
----
+* `Type` : `"Revenu"` ou `"Dépense"`
+* `Nom` : nom de la catégorie ou source (ex. `"Loyer"`, `"Bourse"`)
+* `Montant` : montant numérique
 
-## 📁 Format CSV attendu
+**Exemple :**
 
 ```csv
 Type,Nom,Montant
 Revenu,Bourse,450
-Revenu,Job étudiant,250
+Revenu,Job étudiant,300
 Dépense,Loyer,400
-Dépense,Nourriture,200
+Dépense,Nourriture,180
+Dépense,Netflix,15
+Dépense,Transports,50
+```
+
+---
+
+##  Installation
+
+1. **Cloner le dépôt**
+
+```
+git clone .....
+cd budget_simulator
+```
+
+2. **Créer un environnement virtuel**
+
+```
+python -m venv venv
+source venv/bin/activate  # sous macOS/Linux
+venv\Scripts\activate     # sous Windows
+```
+
+3. **Installer les dépendances**
+
+```
+pip install -r requirements.txt
+```
+
+---
+
+## ▶️ Utilisation
+
+### 1. Préparer un fichier CSV
+
+Placez-le dans le dossier `data/`.
+
+### 2. Lancer le script
+
+```bash
+python main.py --input data/example_budget.csv
+```
+
+### 3. Résultat attendu (exemple console)
+
+```
+--- Résumé du budget ---
+Total revenus  : 750,00 €
+Total dépenses : 645,00 €
+Reste mensuel  : 105,00 €
+Taux d’épargne : 14 %
+
+--- Recommandations ---
+✅ Très bon équilibre entre dépenses et revenus.
+
+Graphique sauvegardé dans: graphs/piechart_07_2025.png
+```
+
+---
+
+## 📊 Graphique généré
+
+* Un **camembert** représentant la répartition des dépenses.
+* Enregistré automatiquement dans `/graphs/` avec date dans le nom.
+
+---
+
+## 🧠 Compétences mises en œuvre
+
+* Lecture et traitement de données (`pandas`)
+* Visualisation (`matplotlib`)
+* Programmation modulaire en Python
+* Automatisation avec scripts CLI (`argparse`)
+* Génération dynamique de fichiers
+* Bonnes pratiques de structuration de projet
+
+---
+
+## 🚀 Améliorations possibles
+
+* Ajout d’une interface web (`Streamlit` ou `Flask`).
+* Connexion avec exports bancaires.
+* Personnalisation des recommandations.
+* Comparaison multi-mois.
+
+---
+
+## 📄 Licence
+
+Projet personnel, open-source, sous licence MIT.
+
+
