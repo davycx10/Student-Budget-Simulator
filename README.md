@@ -158,6 +158,6 @@ Graphique sauvegardé dans: graphs/budget_graphic.XXXX-XX-XX.png
 
 ## 📄 Licence
 
-Projet personnel, open-source, sous licence MIT.
+Projet personnel, open-source, sous  CC0-1.0 license.
 
 
